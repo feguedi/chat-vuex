@@ -1,7 +1,9 @@
 <template>
-  <div class="message-section">
-    <h3 class="message-thread-heading">{{ thread.name }}</h3>
-    <ul ref="list" class="message-list">
+  <div class="message-section float-right w-2/3">
+    <h3 class="message-thread-heading m-0 h-10">
+      {{ thread.name }}
+    </h3>
+    <ul ref="list" class="message-list border-2 border-solid border-lavender h-96 m-0 p-0 overflow-y-auto text-md">
       <Message
         v-for="message in messages"
         :key="message.id"
@@ -10,7 +12,7 @@
     </ul>
     <textarea
       v-model="text"
-      class="message-composer"
+      class="message-composer box-border text-sm h-20 w-full mx-5 p-2.5"
       cols="30"
       rows="10"
       @keyup.enter="sendMessage"

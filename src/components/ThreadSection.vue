@@ -1,11 +1,11 @@
 <template>
-  <div class="thread-section">
-    <div class="thread-count">
+  <div class="thread-section float-left w-1/3">
+    <div class="thread-count h-20 m-0">
       <span v-show="unreadCount">
         Unread threads: {{ unreadCount }}
       </span>
     </div>
-    <ul class="thread-list">
+    <ul class="thread-list border-2 border-solid border-lavender h-96 m-0 p-0 overflow-y-auto text-md hover:bg-ghost-white">
       <Thread
         v-for="thread in threads"
         :key="thread.id"

@@ -1,14 +1,25 @@
 <template>
-  <div class="chatapp md:container mx-auto overflow-hidden">
+  <div class="chatapp max-w-3xl container mx-auto overflow-hidden">
     <ThreadSection />
     <MessageSection />
   </div>  
 </template>
 
-<script setup>
+<script>
+import { useStore } from 'vuex';
 import ThreadSection from './components/ThreadSection.vue';
 import MessageSection from './components/MessageSection.vue';
 
+export default {
+  setup() {
+    const store = useStore();
+    store.dispatch('getAllMessages');
+  },
+  components: {
+    MessageSection,
+    ThreadSection,
+  },
+};
 </script>
 
 <style>

@@ -1,12 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import store from './store';
-import { getAllMessages } from './api';
 
-import './style.css';
+// import './style.css';
+import './css/styles.css';
 
 createApp(App)
   .use(store)
   .mount('#app');
-
-getAllMessages(store);

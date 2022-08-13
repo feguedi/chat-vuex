@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 export const threads = (state) => state.threads;
 
 export function currentThread(state) {

@@ -1,4 +1,5 @@
-
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-debugger */
 function createThread (state, id, name) {
   state.threads = {
     ...state.threads,
