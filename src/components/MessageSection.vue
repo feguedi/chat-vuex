@@ -1,7 +1,7 @@
 <template>
   <div class="message-section">
     <h3 class="message-thread-heading">{{ thread.name }}</h3>
-    <ul class="message-list" ref="list">
+    <ul ref="list" class="message-list">
       <Message
         v-for="message in messages"
         :key="message.id"
@@ -9,11 +9,11 @@
       />
     </ul>
     <textarea
-      class="message-composer"
       v-model="text"
-      @keyup.enter="sendMessage"
+      class="message-composer"
       cols="30"
       rows="10"
+      @keyup.enter="sendMessage"
     ></textarea>
   </div>
 </template>
@@ -44,7 +44,7 @@ function sendMessage() {
       text: trimedText,
       thread: thread.value,
     });
-    text = '';
+    text.value = '';
   }
 }
 </script>

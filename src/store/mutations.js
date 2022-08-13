@@ -1,31 +1,3 @@
-export default {
-  receiveAll (state, messages) {
-    let latestMessage;
-
-    messages.forEach(message => {
-      // create new thread if the thread doesn't exist
-      if (!state.threads[message.threadID]) {
-        createThread(state, message.threadID, message.threadName);
-      }
-      // mark the latest message
-      if (!latestMessage || message.timestamp > latestMessage.timestamp) {
-        latestMessage = message;
-      }
-      // add message
-      addMessage(state, message);
-    })
-    // set initial thread to the one with the latest message
-    setCurrentThread(state, latestMessage.threadID);
-  },
-
-  receiveMessage (state, message) {
-    addMessage(state, message);
-  },
-
-  switchThread (state, id) {
-    setCurrentThread(state, id);
-  },
-};
 
 function createThread (state, id, name) {
   state.threads = {
@@ -64,3 +36,32 @@ function setCurrentThread (state, id) {
   // mark thread as read
   state.threads[id].lastMessage.isRead = true;
 }
+
+export default {
+  receiveAll (state, messages) {
+    let latestMessage;
+
+    messages.forEach(message => {
+      // create new thread if the thread doesn't exist
+      if (!state.threads[message.threadID]) {
+        createThread(state, message.threadID, message.threadName);
+      }
+      // mark the latest message
+      if (!latestMessage || message.timestamp > latestMessage.timestamp) {
+        latestMessage = message;
+      }
+      // add message
+      addMessage(state, message);
+    })
+    // set initial thread to the one with the latest message
+    setCurrentThread(state, latestMessage.threadID);
+  },
+
+  receiveMessage (state, message) {
+    addMessage(state, message);
+  },
+
+  switchThread (state, id) {
+    setCurrentThread(state, id);
+  },
+};

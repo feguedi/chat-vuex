@@ -14,9 +14,7 @@ export function currentMessages(state) {
 }
 
 export function unreadCount({ threads }) {
-  return Object.keys(threads).reduce((count, id) => {
-    return threads[id].lastMessage.isRead ? count : count + 1;
-  }, 0);
+  return Object.keys(threads).reduce((count, id) => threads[id].lastMessage.isRead ? count : count + 1, 0);
 }
 
 export function sortedMessages(state, getters) {
