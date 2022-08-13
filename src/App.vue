@@ -5,21 +5,9 @@
   </div>  
 </template>
 
-<script>
-import { useStore } from 'vuex';
+<script setup>
 import ThreadSection from './components/ThreadSection.vue';
 import MessageSection from './components/MessageSection.vue';
-
-export default {
-  components: {
-    MessageSection,
-    ThreadSection,
-  },
-  setup() {
-    const store = useStore();
-    store.dispatch('getAllMessages');
-  },
-};
 </script>
 
 <style>
