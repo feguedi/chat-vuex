@@ -11,13 +11,13 @@ import ThreadSection from './components/ThreadSection.vue';
 import MessageSection from './components/MessageSection.vue';
 
 export default {
-  setup() {
-    const store = useStore();
-    store.dispatch('getAllMessages');
-  },
   components: {
     MessageSection,
     ThreadSection,
+  },
+  setup() {
+    const store = useStore();
+    store.dispatch('getAllMessages');
   },
 };
 </script>
